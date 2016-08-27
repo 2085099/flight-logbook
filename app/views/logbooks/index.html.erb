@@ -106,6 +106,10 @@
    g.column do |task|
     link_to("Delete", task,  method: :delete)
   end
+
+  g.column do |task|
+    link_to('Edit',  edit_logbook_path(task))
+  end
 end -%>
 
 <table>                         

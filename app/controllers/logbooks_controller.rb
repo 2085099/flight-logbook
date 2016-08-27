@@ -24,6 +24,21 @@ class LogbooksController < ApplicationController
   	end
   end
 
+  def edit
+    @Logbook = Logbook.find(params[:id])
+  end
+
+  def update
+    @Logbook = Logbook.find(params[:id])
+    if @Logbook.update_attributes(permit_logbook)
+      flash[:success] = "Log successfully updated!"
+      redirect_to logbooks_path
+    else
+      flash[:error] = @Logbook.errors.full_messages
+      render 'edit'
+    end
+  end
+
   def destroy
     @Logbook = Logbook.find(params[:id])
     
