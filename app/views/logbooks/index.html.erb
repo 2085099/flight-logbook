@@ -17,6 +17,83 @@
     task.arrivalPlace
   end
 
+  g.column name: "A/C Type" do |task|
+    task.aircraftType
+  end
+
+  g.column name: "A/C Reg" do |task|
+    task.aircraftReg
+  end
+
+  g.column name: "SE/ME" do |task|
+    task.engine_type
+  end
+
+  g.column name: "ME Time" do |task|
+    task.flightTime
+  end
+
+  g.column name: "Name PIC"  do |task|
+    task.PIC
+  end
+
+  g.column name: "Day Take Offs"  do |task|
+    task.day_takeoff
+  end
+
+  g.column name: "Night Take Offs"  do |task|
+    task.night_takeoff
+  end
+
+  g.column name: "Day Landings"  do |task|
+    task.day_landing
+  end
+
+  g.column name: "Night Landings"  do |task|
+    task.night_landing
+  end
+
+  g.column name: "Night Time"  do |task|
+    task.night_time
+  end
+
+  g.column name: "IFR Time"  do |task|
+    task.ifr_time
+  end
+
+  g.column name: "PIC Time"  do |task|
+    task.pic_time
+  end
+
+  g.column name: "Co-Pilot Time"  do |task|
+    task.copilot_time
+  end
+
+  g.column name: "Dual Time"  do |task|
+    task.dual_time
+  end
+
+
+  g.column name: "Instructor Time"  do |task|
+    task.instructor_time
+  end
+
+  g.column name: "SIM Date"  do |task|
+    task.sim_date
+  end
+
+  g.column name: "SIM Type"  do |task|
+    task.simtype
+  end
+
+  g.column name: "SIM Time"  do |task|
+    task.sim_time
+  end
+
+  g.column name: "Remarks"  do |task|
+    task.remarks
+  end
+
    g.column do |task|
     link_to("Delete", task,  method: :delete)
   end
