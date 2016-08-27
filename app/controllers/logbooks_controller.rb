@@ -38,6 +38,6 @@ class LogbooksController < ApplicationController
   end
   private
   	def permit_logbook
-  		params.require(:logbook).permit(:date, :departurePlace, :arrivalPlace)
+  		params.require(:logbook).permit(:date, :departurePlace, :arrivalPlace, :arrivalTime, :remarks)
   	end
 end

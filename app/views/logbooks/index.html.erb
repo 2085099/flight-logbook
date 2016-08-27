@@ -3,19 +3,27 @@
 	<h1>Logbooks#index</h1>
 	<p>Find me in app/views/logbooks/index.html.erb</p>
 
-<%= grid(@Log_grid) do |g|
+<%= grid(@Log_grid, show_filters: :always) do |g|
 
-  g.column name: "Date" do |task|
+  g.column name: "Date", ordering: true, filter: true do |task|
     task.date
   end
 
   g.column name: "From" do |task|
     task.departurePlace
   end
+   g.column name: "Dep. Time" do |task|
+    task.departureTime
+  end
 
    g.column name: "To" do |task|
     task.arrivalPlace
   end
+
+  g.column name: "Arr. Time" do |task|
+    task.arrivalTime.try(:strftime, '%H:%M')
+  end
+
 
   g.column name: "A/C Type" do |task|
     task.aircraftType
@@ -104,12 +112,16 @@ end -%>
   	<th>Date</th>                       
     <th>From</th>
     <th>To</th>
+    <th>Arrival time </th>
+    <th>remarks </th>
   </tr>
 <% @Logbook.each do |data| %>     
   <tr>
   	<td><%= data.date %></td> 
     <td><%= data.departurePlace %></td> 
     <td><%= data.arrivalPlace %></td> 
+    <td><%= data.arrivalTime.try(:strftime, '%H:%M') %></td> 
+    <td><%= data.remarks %></td> 
     <td><%= link_to 'Edit', edit_logbook_path(data) %></td>
     <td><%= link_to "Delete", data,  method: :delete %></td>
   </tr>
