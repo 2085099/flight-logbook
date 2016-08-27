@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-08-26
+  departurePlace: MyString
+  departureTime: 2016-08-26 19:40:58
+  arrivalPlace: MyString
+  arrivalTime: 2016-08-26 19:40:58
+  aircraftType: MyString
+  aircraftReg: MyString
+  single_engine: false
+  multi_engine: false
+  multipilot_time: 2016-08-26 19:40:58
+  flightTime: 2016-08-26 19:40:58
+  PIC: MyString
+  day_takeoff: 1
+  night_takeoff: 1
+  day_landing: 1
+  day_landing: 1
+  night_time: 2016-08-26 19:40:58
+  ifr_time: 2016-08-26 19:40:58
+  pic_time: 2016-08-26 19:40:58
+  copilot_time: 2016-08-26 19:40:58
+  dual_time: 2016-08-26 19:40:58
+  instructor_time: 2016-08-26 19:40:58
+  sim_date: 2016-08-26
+  simtype: MyString
+  sim_time: 2016-08-26 19:40:58
+  remarks: MyString
+
+two:
+  date: 2016-08-26
+  departurePlace: MyString
+  departureTime: 2016-08-26 19:40:58
+  arrivalPlace: MyString
+  arrivalTime: 2016-08-26 19:40:58
+  aircraftType: MyString
+  aircraftReg: MyString
+  single_engine: false
+  multi_engine: false
+  multipilot_time: 2016-08-26 19:40:58
+  flightTime: 2016-08-26 19:40:58
+  PIC: MyString
+  day_takeoff: 1
+  night_takeoff: 1
+  day_landing: 1
+  day_landing: 1
+  night_time: 2016-08-26 19:40:58
+  ifr_time: 2016-08-26 19:40:58
+  pic_time: 2016-08-26 19:40:58
+  copilot_time: 2016-08-26 19:40:58
+  dual_time: 2016-08-26 19:40:58
+  instructor_time: 2016-08-26 19:40:58
+  sim_date: 2016-08-26
+  simtype: MyString
+  sim_time: 2016-08-26 19:40:58
+  remarks: MyString

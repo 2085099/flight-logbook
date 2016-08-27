@@ -1,0 +1,95 @@
+<h1>Add new log</h1>
+
+
+
+<%= form_for @Logbook do |f| %>
+	<%= f.label :date %>
+	<%= f.date_field :date %>
+	<h3> Departure </h3>
+	<%= f.label :departure_airport, "Airport" %>
+	<%= f.text_field :departurePlace, size: 4, maxlength: 4, required: true %>
+
+	<%= f.label :departure_Time, "Time" %>
+	<%= f.time_field :departureTime%>
+
+	<h3> Arrival </h3>
+	<%= f.label :arrival_airport, "Airport" %>
+	<%= f.text_field :arrivalPlace, size: 4, maxlength: 4 %>
+
+	<%= f.label :arrival_time, "Time" %>
+	<%= f.time_field :arrivalTime %>
+
+	<h3> Aircraft </h3>
+
+	<%= f.label :aircraft_type, "Aircraft Type" %>
+	<%= f.text_field :aircraftType, size: 5  %>
+
+	<%= f.label :aircraft_registration, "Aircraft Reg." %>
+	<%= f.text_field :aircraftReg, size: 5 %>
+
+	<br><br>
+
+	<%= f.label :SE, "SE" %>
+	<%= f.radio_button :engine_type, "SE" %>
+	<%= f.label :ME, "ME" %>
+	<%= f.radio_button :engine_type, 'ME' %>
+
+	<%= f.label :multipilot_time, "Multi-Pilot Time" %>
+	<%= f.time_field :multipilot_time %>
+
+	<%= f.label :total_time, "Total Flight" %>
+	<%= f.time_field :flightTime %>
+
+	<%= f.label :PIC_name, "Name PIC" %>
+	<%= f.text_field :PIC, size: 20 %>
+
+	<h3> Take Offs</h3>
+	<%= f.label :day %>
+	<%= f.number_field :day_takeoff, value: 0, min: 0, max: 50 %>
+
+	<%= f.label :night %>
+	<%= f.number_field :day_takeoff, value: 0, min: 0, max: 50 %>
+
+	<h3> Landings</h3>
+	<%= f.label :day %>
+	<%= f.number_field :day_landing, value: 0, min: 0, max: 50 %>
+
+	<%= f.label :night %>
+	<%= f.number_field :night_landing, value: 0, min: 0, max: 50 %>
+
+	<h3> Operational Condition Time</h3>
+	<%= f.label :Night %>
+	<%= f.time_field :night_time %>
+
+	<%= f.label :ifr, "IFR" %>
+	<%= f.time_field :ifr_time %>
+
+	<h3> Pilot Function Time </h3>
+	<%= f.label :pic, "PIC" %>
+	<%= f.time_field :pic_time %>
+
+	<%= f.label :copilot, "Co-Pilot" %>
+	<%= f.time_field :copilot_time %>
+
+	<%= f.label :dual %>
+	<%= f.time_field :dual_time %>
+
+	<%= f.label :instructor %>
+	<%= f.time_field :instructor_time %>
+	
+	<h3> Synthetic Training Devices Session</h3>
+	<%= f.label :date %>
+	<%= f.date_field :sim_date %>
+
+	<%= f.label :type %>
+	<%= f.text_field :simtype, size: 10  %>
+
+	<%= f.label :totaltime, "Total Time of Session" %>
+	<%= f.time_field :sim_time %>
+
+	<br><br>
+	<%= f.label :remarks %>
+	<%= f.text_field :remarks, size: 10  %>
+	<br><br>
+	<%= f.submit%>
+<% end %>

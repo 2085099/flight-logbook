@@ -1,0 +1,42 @@
+
+<div class ="page-hold">
+	<h1>Logbooks#index</h1>
+	<p>Find me in app/views/logbooks/index.html.erb</p>
+
+<%= grid(@Log_grid) do |g|
+
+  g.column name: "Date" do |task|
+    task.date
+  end
+
+  g.column name: "From" do |task|
+    task.departurePlace
+  end
+
+   g.column name: "To" do |task|
+    task.arrivalPlace
+  end
+
+   g.column do |task|
+    link_to("Delete", task,  method: :delete)
+  end
+end -%>
+
+<table>                         
+  <tr>   
+  	<th>Date</th>                       
+    <th>From</th>
+    <th>To</th>
+  </tr>
+<% @Logbook.each do |data| %>     
+  <tr>
+  	<td><%= data.date %></td> 
+    <td><%= data.departurePlace %></td> 
+    <td><%= data.arrivalPlace %></td> 
+    <td><%= link_to 'Edit', edit_logbook_path(data) %></td>
+    <td><%= link_to "Delete", data,  method: :delete %></td>
+  </tr>
+<% end %> 
+
+</table> 
+</div>
