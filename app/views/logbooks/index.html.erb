@@ -12,8 +12,9 @@
   g.column name: "From" do |task|
     task.departurePlace
   end
+
    g.column name: "Dep. Time" do |task|
-    task.departureTime
+    task.departureTime.try(:strftime, '%H:%M')
   end
 
    g.column name: "To" do |task|
@@ -118,7 +119,7 @@ end -%>
 <% @Logbook.each do |data| %>     
   <tr>
   	<td><%= data.date %></td> 
-    <td><%= data.departurePlace %></td> 
+    <td><%= data.departurePlace %></td>  
     <td><%= data.arrivalPlace %></td> 
     <td><%= data.arrivalTime.try(:strftime, '%H:%M') %></td> 
     <td><%= data.remarks %></td> 
