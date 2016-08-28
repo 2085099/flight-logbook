@@ -57,7 +57,7 @@ class LogbooksController < ApplicationController
   private
   	def permit_logbook
   		params.require(:logbook).permit(:date, :departurePlace, :departureTime, :arrivalPlace,
-       :arrivalTime, :aircraftType, :aircraftReg, :multipilot_time, :flightTime, :PIC, :day_takeoff,
+       :arrivalTime, :aircraftType, :aircraftReg, :engine_type, :multipilot_time, :flightTime, :PIC, :day_takeoff,
        :night_takeoff, :day_landing, :night_landing, :night_time, :ifr_time, :pic_time, :copilot_time,
        :dual_time, :instructor_time, :sim_date, :simtype, :sim_time, :remarks)
   	end

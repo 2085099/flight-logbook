@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827002442) do
+ActiveRecord::Schema.define(version: 20160828170629) do
+
+  create_table "airports", force: :cascade do |t|
+    t.string   "ident"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "logbooks", force: :cascade do |t|
     t.date     "date"
@@ -21,13 +29,14 @@ ActiveRecord::Schema.define(version: 20160827002442) do
     t.time     "arrivalTime"
     t.string   "aircraftType"
     t.string   "aircraftReg"
+    t.boolean  "single_engine"
+    t.boolean  "multi_engine"
     t.time     "multipilot_time"
     t.time     "flightTime"
     t.string   "PIC"
     t.integer  "day_takeoff"
     t.integer  "night_takeoff"
     t.integer  "day_landing"
-    t.integer  "night_landing"
     t.time     "night_time"
     t.time     "ifr_time"
     t.time     "pic_time"
@@ -40,14 +49,8 @@ ActiveRecord::Schema.define(version: 20160827002442) do
     t.string   "remarks"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "night_landing"
     t.string   "engine_type"
-
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

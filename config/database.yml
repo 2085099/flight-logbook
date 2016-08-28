@@ -8,10 +8,14 @@ default: &default
   adapter: sqlite3
   pool: 5
   timeout: 5000
+  username: root
+  password: password
+  host: 127.0.0.1
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: logbook_development
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
