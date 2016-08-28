@@ -10,6 +10,9 @@ class LogbooksController < ApplicationController
     @Log_grid = initialize_grid(Logbook);
   end
 
+  def show
+    @Logbook = Logbook.find(params[:id])
+  end
   def create
   	#Submitting logbook entry form
   	@Logbook = Logbook.new(permit_logbook)

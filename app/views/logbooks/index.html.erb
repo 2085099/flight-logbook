@@ -1,12 +1,11 @@
 
 <div class ="page-hold">
-	<h1>Logbooks#index</h1>
-	<p>Find me in app/views/logbooks/index.html.erb</p>
+	<h1>Logbook</h1>
 
 <%= grid(@Log_grid, show_filters: :always) do |g|
 
   g.column name: "Date", ordering: true, filter: true do |task|
-    task.date
+    link_to(task.date.try(:strftime, '%d/%m/%Y'), logbook_path(task))
   end
 
   g.column name: "From" do |task|
@@ -26,11 +25,11 @@
   end
 
 
-  g.column name: "A/C Type" do |task|
+  g.column name: "Type" do |task|
     task.aircraftType
   end
 
-  g.column name: "A/C Reg" do |task|
+  g.column name: "Reg" do |task|
     task.aircraftReg
   end
 
@@ -39,52 +38,52 @@
   end
 
   g.column name: "ME Time" do |task|
-    task.flightTime
+    task.flightTime.try(:strftime, '%H:%M')
   end
 
   g.column name: "Name PIC"  do |task|
     task.PIC
   end
 
-  g.column name: "Day Take Offs"  do |task|
+  g.column name: "Day TO"  do |task|
     task.day_takeoff
   end
 
-  g.column name: "Night Take Offs"  do |task|
+  g.column name: "Night TO"  do |task|
     task.night_takeoff
   end
 
-  g.column name: "Day Landings"  do |task|
+  g.column name: "Day L"  do |task|
     task.day_landing
   end
 
-  g.column name: "Night Landings"  do |task|
+  g.column name: "Night L"  do |task|
     task.night_landing
   end
 
-  g.column name: "Night Time"  do |task|
-    task.night_time
+  g.column name: "Night"  do |task|
+    task.night_time.try(:strftime, '%H:%M')
   end
 
-  g.column name: "IFR Time"  do |task|
-    task.ifr_time
+  g.column name: "IFR"  do |task|
+    task.ifr_time.try(:strftime, '%H:%M')
   end
 
-  g.column name: "PIC Time"  do |task|
-    task.pic_time
+  g.column name: "PIC"  do |task|
+    task.pic_time.try(:strftime, '%H:%M')
   end
 
-  g.column name: "Co-Pilot Time"  do |task|
-    task.copilot_time
+  g.column name: "Co-Pilot"  do |task|
+    task.copilot_time.try(:strftime, '%H:%M')
   end
 
-  g.column name: "Dual Time"  do |task|
-    task.dual_time
+  g.column name: "Dual"  do |task|
+    task.dual_time.try(:strftime, '%H:%M')
   end
 
 
-  g.column name: "Instructor Time"  do |task|
-    task.instructor_time
+  g.column name: "Instr."  do |task|
+    task.instructor_time.try(:strftime, '%H:%M')
   end
 
   g.column name: "SIM Date"  do |task|
@@ -103,34 +102,14 @@
     task.remarks
   end
 
+  g.column do |task|
+    link_to('Edit',  edit_logbook_path(task))
+  end
+
    g.column do |task|
     link_to("Delete", task,  method: :delete)
   end
 
-  g.column do |task|
-    link_to('Edit',  edit_logbook_path(task))
-  end
 end -%>
 
-<table>                         
-  <tr>   
-  	<th>Date</th>                       
-    <th>From</th>
-    <th>To</th>
-    <th>Arrival time </th>
-    <th>remarks </th>
-  </tr>
-<% @Logbook.each do |data| %>     
-  <tr>
-  	<td><%= data.date %></td> 
-    <td><%= data.departurePlace %></td>  
-    <td><%= data.arrivalPlace %></td> 
-    <td><%= data.arrivalTime.try(:strftime, '%H:%M') %></td> 
-    <td><%= data.remarks %></td> 
-    <td><%= link_to 'Edit', edit_logbook_path(data) %></td>
-    <td><%= link_to "Delete", data,  method: :delete %></td>
-  </tr>
-<% end %> 
-
-</table> 
 </div>

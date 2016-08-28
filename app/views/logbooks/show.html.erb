@@ -1,2 +1,93 @@
-<h1>Logbooks#show</h1>
-<p>Find me in app/views/logbooks/show.html.erb</p>
+<h1><%= @Logbook.departurePlace %> - <%= @Logbook.arrivalPlace %></h1>
+<h4><%= @Logbook.date.try(:strftime, '%d/%m/%Y') %></h4>
+<br>
+
+
+<table class="table table-bordered">                         
+  <tr>   
+  	<th>Departure Time</th>
+  	<th>Arival Time</th>
+  </tr>
+  <tr>
+	<td><%= @Logbook.departureTime.try(:strftime, '%H:%M') %></td>
+	<td><%= @Logbook.arrivalTime.try(:strftime, '%H:%M') %></td>
+  </tr>
+
+   
+
+</table> 
+
+<table class="table table-bordered">  
+<tr>   
+  	<th>Type</th>
+  	<th>Registration</th>
+  	<th>SE/ME</th>
+  </tr>
+
+  <tr>
+	<td><%= @Logbook.aircraftType %></td>
+	<td><%= @Logbook.aircraftReg %></td>
+	<td><%= @Logbook.engine_type %></td>
+
+  </tr>
+  </table>
+
+  <table class="table table-bordered">  
+<tr>   
+  	<th colspan="2">Take Offs</th>
+  	<th colspan="2">Landings</th>
+
+  </tr>
+
+  <tr>
+  <th>Day</th>
+  <th>Night</th>
+  <th>Day</th>
+  <th>Night</th>
+  </tr>
+
+  <tr>
+	<td><%= @Logbook.day_takeoff %></td>
+	<td><%= @Logbook.night_takeoff %></td>
+	<td><%= @Logbook.day_landing %></td>
+	<td><%= @Logbook.night_landing %></td>
+
+
+  </tr>
+  </table>
+
+  <table class="table table-bordered">  
+<tr>   
+  	<th>Night</th>
+  	<th>PIC</th>
+  	<th>Co-Pilot</th>
+  	<th>Dual</th>
+  	<th>Instructor</th>
+  </tr>
+
+  <tr>
+	<td><%= @Logbook.night_time %></td>
+	<td><%= @Logbook.pic_time %></td>
+	<td><%= @Logbook.copilot_time %></td>
+	<td><%= @Logbook.dual_time %></td>
+	<td><%= @Logbook.instructor_time %></td>
+
+  </tr>
+  </table>
+
+  <table class="table table-bordered">  
+<tr>   
+  	<th>Date</th>
+  	<th>Type</th>
+  	<th>Time</th>
+
+  </tr>
+
+  <tr>
+	<td><%= @Logbook.sim_date %></td>
+	<td><%= @Logbook.simtype %></td>
+	<td><%= @Logbook.sim_time %></td>
+
+
+  </tr>
+  </table>

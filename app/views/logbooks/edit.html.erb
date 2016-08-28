@@ -6,8 +6,8 @@
 	<%= f.label :date %>
 	<%= f.date_field :date %>
 	<h3> Departure </h3>
-	<%= f.label :departure_airport, "Airport" %>
-	<%= f.text_field :departurePlace, size: 4, maxlength: 4 %>
+	<%= f.label :departure_airport, "Airport"%>
+	<%= f.text_field :departurePlace, size: 4, maxlength: 4, required: true %>
 
 	<%= f.label :departure_Time, "Time" %>
 	<%= f.time_field :departureTime%>

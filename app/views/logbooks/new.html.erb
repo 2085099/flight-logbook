@@ -3,28 +3,28 @@
 
 
 <%= form_for @Logbook do |f| %>
-	<%= f.label :date %>
+	<%= f.label :date, class: "required" %>
 	<%= f.date_field :date %>
 	<h3> Departure </h3>
-	<%= f.label :departure_airport, "Airport" %>
-	<%= f.text_field :departurePlace, size: 4, maxlength: 4 %>
+	<%= f.label :departure_airport, "Airport", class: "required" %>
+	<%= f.text_field :departurePlace, size: 4, maxlength: 4, required: true %>
 
-	<%= f.label :departure_Time, "Time" %>
+	<%= f.label :departure_Time, "Time", class: "required" %>
 	<%= f.time_field :departureTime%>
 
 	<h3> Arrival </h3>
-	<%= f.label :arrival_airport, "Airport" %>
+	<%= f.label :arrival_airport, "Airport", class: "required" %>
 	<%= f.text_field :arrivalPlace, size: 4, maxlength: 4 %>
 
-	<%= f.label :arrival_time, "Time" %>
+	<%= f.label :arrival_time, "Time", class: "required" %>
 	<%= f.time_field :arrivalTime %>
 
 	<h3> Aircraft </h3>
 
-	<%= f.label :aircraft_type, "Aircraft Type" %>
+	<%= f.label :aircraft_type, "Aircraft Type", class: "required" %>
 	<%= f.text_field :aircraftType, size: 5  %>
 
-	<%= f.label :aircraft_registration, "Aircraft Reg." %>
+	<%= f.label :aircraft_registration, "Aircraft Reg.", class: "required" %>
 	<%= f.text_field :aircraftReg, size: 5 %>
 
 	<br><br>
@@ -37,10 +37,10 @@
 	<%= f.label :multipilot_time, "Multi-Pilot Time" %>
 	<%= f.time_field :multipilot_time %>
 
-	<%= f.label :total_time, "Total Flight" %>
+	<%= f.label :total_time, "Total Flight", class: "required" %>
 	<%= f.time_field :flightTime %>
 
-	<%= f.label :PIC_name, "Name PIC" %>
+	<%= f.label :PIC_name, "Name PIC", class: "required" %>
 	<%= f.text_field :PIC, size: 20 %>
 
 	<h3> Take Offs</h3>
