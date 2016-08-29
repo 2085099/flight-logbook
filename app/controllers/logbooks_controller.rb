@@ -8,6 +8,7 @@ class LogbooksController < ApplicationController
   def index
   	@Logbook = Logbook.all
     @Log_grid = initialize_grid(Logbook);
+
   end
 
   def show
@@ -16,6 +17,7 @@ class LogbooksController < ApplicationController
   def create
   	#Submitting logbook entry form
   	@Logbook = Logbook.new(permit_logbook)
+   
 
   	if @Logbook.save
   		flash[:success] = "Log successfully added!"

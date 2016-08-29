@@ -1,5 +1,6 @@
 <h1><%= @Logbook.departurePlace %> - <%= @Logbook.arrivalPlace %></h1>
 <h4><%= @Logbook.date.try(:strftime, '%d/%m/%Y') %></h4>
+
 <br>
 
 
@@ -87,7 +88,20 @@
 	<td><%= @Logbook.sim_date %></td>
 	<td><%= @Logbook.simtype %></td>
 	<td><%= @Logbook.sim_time %></td>
+  </tr>
+
+  
+  </table>
+ <table class="table table-bordered">  
+<tr>   
+    <th>Remarks</th>
 
 
   </tr>
+
+  <tr>
+  <td><%= @Logbook.remarks %></td>
+  </tr>
+
+  
   </table>

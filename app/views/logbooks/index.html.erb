@@ -1,7 +1,7 @@
 
 <div class ="page-hold">
 	<h1>Logbook</h1>
-
+  <h4><%= @Logbook.sum(:flightTime) %></h4>
 <%= grid(@Log_grid, show_filters: :always) do |g|
 
   g.column name: "Date", ordering: true, filter: true do |task|
@@ -37,8 +37,8 @@
     task.engine_type
   end
 
-  g.column name: "ME Time" do |task|
-    task.flightTime.try(:strftime, '%H:%M')
+  g.column name: "Total Time" do |task|
+    task.flightTime
   end
 
   g.column name: "Name PIC"  do |task|
@@ -62,44 +62,33 @@
   end
 
   g.column name: "Night"  do |task|
-    task.night_time.try(:strftime, '%H:%M')
+    task.night_time
   end
 
   g.column name: "IFR"  do |task|
-    task.ifr_time.try(:strftime, '%H:%M')
+    task.ifr_time
   end
 
   g.column name: "PIC"  do |task|
-    task.pic_time.try(:strftime, '%H:%M')
+    task.pic_time
   end
 
   g.column name: "Co-Pilot"  do |task|
-    task.copilot_time.try(:strftime, '%H:%M')
+    task.copilot_time
   end
 
   g.column name: "Dual"  do |task|
-    task.dual_time.try(:strftime, '%H:%M')
+    task.dual_time
   end
 
 
   g.column name: "Instr."  do |task|
-    task.instructor_time.try(:strftime, '%H:%M')
+    task.instructor_time
   end
 
-  g.column name: "SIM Date"  do |task|
-    task.sim_date
-  end
-
-  g.column name: "SIM Type"  do |task|
-    task.simtype
-  end
-
-  g.column name: "SIM Time"  do |task|
+ 
+  g.column name: "SIM"  do |task|
     task.sim_time
-  end
-
-  g.column name: "Remarks"  do |task|
-    task.remarks
   end
 
   g.column do |task|
@@ -111,5 +100,7 @@
   end
 
 end -%>
+
+
 
 </div>

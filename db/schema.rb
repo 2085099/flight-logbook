@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828170629) do
+ActiveRecord::Schema.define(version: 20160829100357) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "ident"
@@ -31,21 +31,21 @@ ActiveRecord::Schema.define(version: 20160828170629) do
     t.string   "aircraftReg"
     t.boolean  "single_engine"
     t.boolean  "multi_engine"
-    t.time     "multipilot_time"
-    t.time     "flightTime"
+    t.float    "multipilot_time"
+    t.float    "flightTime"
     t.string   "PIC"
     t.integer  "day_takeoff"
     t.integer  "night_takeoff"
     t.integer  "day_landing"
-    t.time     "night_time"
-    t.time     "ifr_time"
-    t.time     "pic_time"
-    t.time     "copilot_time"
-    t.time     "dual_time"
-    t.time     "instructor_time"
+    t.float    "night_time"
+    t.float    "ifr_time"
+    t.float    "pic_time"
+    t.float    "copilot_time"
+    t.float    "dual_time"
+    t.float    "instructor_time"
     t.date     "sim_date"
     t.string   "simtype"
-    t.time     "sim_time"
+    t.float    "sim_time"
     t.string   "remarks"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
