@@ -38,44 +38,44 @@
 	<%= f.number_field :multipilot_time %>
 
 	<%= f.label :total_time, "Total Flight", class: "required" %>
-	<%= f.number_field :flightTime, step: 0.01 %>
+	<%= f.number_field :flightTime, min: 0, step: 0.01 %>
 
 	<%= f.label :PIC_name, "Name PIC", class: "required" %>
 	<%= f.text_field :PIC, size: 20 %>
 
 	<h3> Take Offs</h3>
 	<%= f.label :day %>
-	<%= f.number_field :day_takeoff, value: 0, min: 0, max: 50 %>
+	<%= f.number_field :day_takeoff, min: 0, max: 50 %>
 
 	<%= f.label :night %>
-	<%= f.number_field :day_takeoff, value: 0, min: 0, max: 50 %>
+	<%= f.number_field :day_takeoff, min: 0, max: 50 %>
 
 	<h3> Landings</h3>
 	<%= f.label :day %>
-	<%= f.number_field :day_landing, value: 0, min: 0, max: 50 %>
+	<%= f.number_field :day_landing, min: 0, max: 50 %>
 
 	<%= f.label :night %>
-	<%= f.number_field :night_landing, value: 0, min: 0, max: 50 %>
+	<%= f.number_field :night_landing, min: 0, max: 50 %>
 
 	<h3> Operational Condition Time</h3>
 	<%= f.label :Night %>
-	<%= f.number_field :night_time %>
+	<%= f.number_field :night_time, min: 0, step: 0.01 %>
 
 	<%= f.label :ifr, "IFR" %>
-	<%= f.number_field :ifr_time %>
+	<%= f.number_field :ifr_time, min: 0, step: 0.01 %>
 
 	<h3> Pilot Function Time </h3>
 	<%= f.label :pic, "PIC" %>
-	<%= f.number_field :pic_time %>
+	<%= f.number_field :pic_time, min: 0, step: 0.01 %>
 
 	<%= f.label :copilot, "Co-Pilot" %>
-	<%= f.number_field :copilot_time %>
+	<%= f.number_field :copilot_time, min: 0, step: 0.01%>
 
 	<%= f.label :dual %>
-	<%= f.number_field :dual_time %>
+	<%= f.number_field :dual_time, min: 0, step: 0.01 %>
 
 	<%= f.label :instructor %>
-	<%= f.number_field :instructor_time %>
+	<%= f.number_field :instructor_time, min: 0, step: 0.01 %>
 	
 	<h3> Synthetic Training Devices Session</h3>
 	<%= f.label :date %>
@@ -85,7 +85,7 @@
 	<%= f.text_field :simtype, size: 10  %>
 
 	<%= f.label :totaltime, "Total Time of Session" %>
-	<%= f.number_field :sim_time %>
+	<%= f.number_field :sim_time, min: 0, step: 0.01 %>
 
 	<br><br>
 	<%= f.label :remarks %>

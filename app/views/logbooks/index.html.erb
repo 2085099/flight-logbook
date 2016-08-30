@@ -1,8 +1,14 @@
 
 <div class ="page-hold">
-	<h1>Logbook</h1>
-  <h4><%= @Logbook.sum(:flightTime) %></h4>
+	<h1><%= current_user.email %>'s Logbook</h1>
+ <p> Total flights: <%=  Logbook.count('id', :distinct => true) %> </p>
+
+<br>
+
+<% flightTimeSum = 0%>
+<% dayTOSum = 0%>
 <%= grid(@Log_grid, show_filters: :always) do |g|
+
 
   g.column name: "Date", ordering: true, filter: true do |task|
     link_to(task.date.try(:strftime, '%d/%m/%Y'), logbook_path(task))
@@ -10,7 +16,10 @@
 
   g.column name: "From" do |task|
     task.departurePlace
+
   end
+
+
 
    g.column name: "Dep. Time" do |task|
     task.departureTime.try(:strftime, '%H:%M')
@@ -37,16 +46,19 @@
     task.engine_type
   end
 
-  g.column name: "Total Time" do |task|
-    task.flightTime
-  end
-
   g.column name: "Name PIC"  do |task|
     task.PIC
   end
 
+  g.column name: "Total Time" do |task|
+    task.flightTime
+  end
+
+  
+
   g.column name: "Day TO"  do |task|
     task.day_takeoff
+
   end
 
   g.column name: "Night TO"  do |task|
@@ -99,8 +111,11 @@
     link_to("Delete", task,  method: :delete)
   end
 
-end -%>
 
+  g.last_row do |rec|         # This row will always be added to the bottom of the grid
+    '<tr><td>' +'Total' + '</td><td colspan = 8>' + '</td><td>' + @Logbook.sum(:flightTime).to_s + '</td><td>' + @Logbook.sum(:day_takeoff).to_s + '</td><td>' + @Logbook.sum(:night_takeoff).to_s + '</td><td>' + @Logbook.sum(:day_landing).to_s + '</td><td>' + @Logbook.sum(:night_landing).to_s + '</td><td>' + @Logbook.sum(:night_time).to_s + '</td><td>' + @Logbook.sum(:ifr_time).to_s + '</td><td>' + @Logbook.sum(:pic_time).to_s + '</td><td>' + @Logbook.sum(:copilot_time).to_s + '</td><td>' + @Logbook.sum(:dual_time).to_s + '</td><td>' + @Logbook.sum(:instructor_time).to_s + '</td><td>' + @Logbook.sum(:sim_time).to_s + '</td></tr>'
+  end
+end -%>
 
 
 </div>
