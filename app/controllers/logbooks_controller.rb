@@ -7,7 +7,10 @@ class LogbooksController < ApplicationController
 
   def index
   	@Logbook = Logbook.all
-    @Log_grid = initialize_grid(Logbook);
+    @logs_grid = initialize_grid(Logbook, name: 'logs', enable_export_to_csv: true,
+      csv_file_name: 'logbook');
+
+   export_grid_if_requested
 
   end
 

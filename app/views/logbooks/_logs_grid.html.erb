@@ -1,0 +1,79 @@
+<%= grid(@logs_grid) do |g|
+  # HTML Version
+  g.column in_csv: false, name: "Date", ordering: true, filter: true do |task|
+    link_to(task.date.try(:strftime, '%d/%m/%Y'), logbook_path(task))
+  end
+  # CSV Version
+  g.column in_html: false, name: "Date", ordering: true, filter: true do |task|
+    task.date.try(:strftime, '%d/%m/%Y')
+  end
+  g.column name: "From" do |task|
+    task.departurePlace
+  end
+   g.column name: "Dep. Time" do |task|
+    task.departureTime.try(:strftime, '%H:%M')
+  end
+   g.column name: "To" do |task|
+    task.arrivalPlace
+  end
+  g.column name: "Arr. Time" do |task|
+    task.arrivalTime.try(:strftime, '%H:%M')
+  end
+  g.column name: "Type" do |task|
+    task.aircraftType
+  end
+  g.column name: "Reg" do |task|
+    task.aircraftReg
+  end
+  g.column name: "SE/ME" do |task|
+    task.engine_type
+  end
+  g.column name: "Name PIC"  do |task|
+    task.PIC
+  end
+  g.column name: "Total Time" do |task|
+    task.flightTime
+  end
+  g.column name: "Day TO"  do |task|
+    task.day_takeoff
+  end
+  g.column name: "Night TO"  do |task|
+    task.night_takeoff
+  end
+  g.column name: "Day L"  do |task|
+    task.day_landing
+  end
+  g.column name: "Night L"  do |task|
+    task.night_landing
+  end
+  g.column name: "Night"  do |task|
+    task.night_time
+  end
+  g.column name: "IFR"  do |task|
+    task.ifr_time
+  end
+  g.column name: "PIC"  do |task|
+    task.pic_time
+  end
+  g.column name: "Co-Pilot"  do |task|
+    task.copilot_time
+  end
+  g.column name: "Dual"  do |task|
+    task.dual_time
+  end
+  g.column name: "Instr."  do |task|
+    task.instructor_time
+  end
+  g.column name: "SIM"  do |task|
+    task.sim_time
+  end
+  g.column in_csv: false do |task|
+    link_to('Edit',  edit_logbook_path(task))
+  end
+   g.column in_csv: false do |task|
+    link_to("Delete", task,  method: :delete)
+  end
+  g.last_row do |rec|         # This row will always be added to the bottom of the grid
+    '<tr><td>' +'Total' + '</td><td colspan = 8>' + '</td><td>' + @Logbook.sum(:flightTime).to_s + '</td><td>' + @Logbook.sum(:day_takeoff).to_s + '</td><td>' + @Logbook.sum(:night_takeoff).to_s + '</td><td>' + @Logbook.sum(:day_landing).to_s + '</td><td>' + @Logbook.sum(:night_landing).to_s + '</td><td>' + @Logbook.sum(:night_time).to_s + '</td><td>' + @Logbook.sum(:ifr_time).to_s + '</td><td>' + @Logbook.sum(:pic_time).to_s + '</td><td>' + @Logbook.sum(:copilot_time).to_s + '</td><td>' + @Logbook.sum(:dual_time).to_s + '</td><td>' + @Logbook.sum(:instructor_time).to_s + '</td><td>' + @Logbook.sum(:sim_time).to_s + '</td></tr>'
+  end
+end -%>
