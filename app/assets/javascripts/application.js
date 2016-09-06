@@ -18,3 +18,5 @@
 //= require bootstrap-sprockets
 //= require bootstrap.min
 //= require wice_grid
+//= require underscore
+//= require gmaps/google
