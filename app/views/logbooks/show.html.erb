@@ -1,8 +1,7 @@
 <h1><%= @Logbook.departurePlace %> - <%= @Logbook.arrivalPlace %></h1>
 
-<%= @lat %>
-<%= @test %>
-<%= @latitude %>
+<h5> Coordinates EGKK: </h5>
+<p> (<%= @lat_dep %>, <%= @long_dep %>) </p>
 
 <h4><%= @Logbook.date.try(:strftime, '%d/%m/%Y') %></h4>
 

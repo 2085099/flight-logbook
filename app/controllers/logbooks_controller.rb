@@ -18,12 +18,9 @@ class LogbooksController < ApplicationController
     @Logbook = Logbook.find(params[:id])
 
     #Testing queries
-    @lat = Airport.select('airports.latitude').where('airports.ident = ?', 'logbooks.departurePlace').first
-    
-    @latitude = Airport.where(ident: 'logbooks.departurePlace').pluck(:latitude)
+    @lat_dep = Airport.where(ident: @Logbook.departurePlace).pluck(:latitude).first
+    @long_dep = Airport.where(ident: @Logbook.departurePlace).pluck(:longitude).first
 
-    @test = Logbook.where(id: 32).pluck(:departurePlace)
-   
   end
 
   def create
