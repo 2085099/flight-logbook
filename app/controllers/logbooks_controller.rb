@@ -6,17 +6,18 @@ class LogbooksController < ApplicationController
   end
 
   def index
-  	@Logbook = Logbook.all
+    @Logbook = Logbook.all
+    
     @logs_grid = initialize_grid(Logbook, name: 'logs', enable_export_to_csv: true,
-      csv_file_name: 'logbook');
+      csv_file_name: 'logbook')
 
-   export_grid_if_requested
-
+    export_grid_if_requested('logs' => 'logs_grid')
   end
 
   def show
     @Logbook = Logbook.find(params[:id])
   end
+
   def create
   	#Submitting logbook entry form
   	@Logbook = Logbook.new(permit_logbook)

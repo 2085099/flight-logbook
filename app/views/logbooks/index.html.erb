@@ -1,12 +1,10 @@
-
 <div class ="page-hold">
 	<h1><%= current_user.email %>'s Logbook</h1>
  <p> Total flights: <%=  Logbook.count('id', :distinct => true) %> </p>
 
 <br>
 <%= render partial: 'logs_grid' %>
-
 <button class="wg-external-csv-export-button" data-grid-name="logs">Export To CSV</button>
-
-
+<a href="/logbooks/index?logs%5Bexport%5D=csv">Checklist 1</a>
 </div>
+
