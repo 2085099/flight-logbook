@@ -1,8 +1,12 @@
 <h1><%= @Logbook.departurePlace %> - <%= @Logbook.arrivalPlace %></h1>
+
+<%= @lat %>
+<%= @test %>
+<%= @latitude %>
+
 <h4><%= @Logbook.date.try(:strftime, '%d/%m/%Y') %></h4>
 
 <br>
-
 
 <table class="table table-bordered">                         
   <tr>   

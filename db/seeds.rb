@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Airport.create(ident: 'EGKK', latitude: '51.14810181', longitude: '-0.190277994')
