@@ -1,4 +1,4 @@
-<%= grid(@logs_grid) do |g|
+<%= grid(@logs_grid, hide_csv_button: true) do |g|
   # HTML Version
   g.column in_csv: false, name: "Date", ordering: true, filter: true do |task|
     link_to(task.date.try(:strftime, '%d/%m/%Y'), logbook_path(task))

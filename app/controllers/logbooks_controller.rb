@@ -9,7 +9,7 @@ class LogbooksController < ApplicationController
     @Logbook = Logbook.all
     
     @logs_grid = initialize_grid(Logbook, name: 'logs', enable_export_to_csv: true,
-      csv_file_name: 'logbook')
+      csv_file_name: 'logbook', order: 'logbooks.created_at', order_direction: 'desc')
 
     export_grid_if_requested('logs' => 'logs_grid')
   end
@@ -17,10 +17,13 @@ class LogbooksController < ApplicationController
   def show
     @Logbook = Logbook.find(params[:id])
 
-    #Testing queries
+    #Departure Airport
     @lat_dep = Airport.where(ident: @Logbook.departurePlace).pluck(:latitude).first
     @long_dep = Airport.where(ident: @Logbook.departurePlace).pluck(:longitude).first
 
+    #Arrival Airport
+    @lat_arr = Airport.where(ident: @Logbook.arrivalPlace).pluck(:latitude).first
+    @long_arr = Airport.where(ident: @Logbook.arrivalPlace).pluck(:longitude).first
   end
 
   def create
