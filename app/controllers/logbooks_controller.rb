@@ -7,8 +7,8 @@ class LogbooksController < ApplicationController
 
   def index
     @Logbook = Logbook.all
-    
-    @logs_grid = initialize_grid(Logbook, name: 'logs', enable_export_to_csv: true,
+
+    @logs_grid = initialize_grid(Logbook, name: 'logs', conditions: ["logbooks.user_id = ? ", current_user.id],  enable_export_to_csv: true,
       csv_file_name: 'logbook', order: 'logbooks.created_at', order_direction: 'desc')
 
     export_grid_if_requested('logs' => 'logs_grid')
@@ -29,6 +29,7 @@ class LogbooksController < ApplicationController
   def create
   	#Submitting logbook entry form
   	@Logbook = Logbook.new(permit_logbook)
+    @Logbook.user_id = current_user.id
    
 
   	if @Logbook.save

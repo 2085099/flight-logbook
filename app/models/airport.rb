@@ -1,4 +1,4 @@
 class Airport < ActiveRecord::Base
-	belongs_to :logbook
+	belongs_to :logbooks
 	
 end
