@@ -24,8 +24,6 @@ class LogbooksController < ApplicationController
     #Arrival Airport
     @lat_arr = Airport.where(ident: @Logbook.arrivalPlace).pluck(:latitude).first
     @long_arr = Airport.where(ident: @Logbook.arrivalPlace).pluck(:longitude).first
-
-    @distance = ((Geocoder::Calculations.distance_between([@lat_dep, @long_dep], [@lat_arr, @long_arr])) * 0.868976).round(1)
   end
 
   def create
