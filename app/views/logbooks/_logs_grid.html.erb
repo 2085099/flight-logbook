@@ -10,10 +10,6 @@
   g.column name: "From" do |task|
     task.departurePlace
   end
-   g.column name: "logid" do |task|
-    task.user_id
-  end
-
    g.column name: "Dep. Time" do |task|
     task.departureTime.try(:strftime, '%H:%M')
   end
