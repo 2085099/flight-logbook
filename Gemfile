@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'gmaps4rails'
-
+gem 'geocoder'
 # Table gem
 gem "wice_grid", '3.6.0.pre4'
 gem 'font-awesome-sass',  '~> 4.3'

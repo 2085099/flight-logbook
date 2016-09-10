@@ -5,9 +5,10 @@
 
 <h1><%= @Logbook.departurePlace %> - <%= @Logbook.arrivalPlace %></h1>
 
-<p> (<%= @lat_dep %>, <%= @long_dep %>) </p>
+<h5><b><%= @distance %> nm </b></h5>
 
-<h4><%= @Logbook.date.try(:strftime, '%d/%m/%Y') %></h4>
+
+
 
 <br>
 <div style='width: 800px; margin: 0 auto; padding-bottom: 15px;'>
@@ -60,7 +61,8 @@ var map = new google.maps.Map(document.getElementById('map'), {
 </div>
 
 
-<table class="table table-bordered">                         
+<table class="table table-bordered">       
+<h4><%= @Logbook.date.try(:strftime, '%d/%m/%Y') %></h4>                  
   <tr>   
   	<th>Departure Time</th>
   	<th>Arival Time</th>
